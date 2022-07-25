@@ -2,25 +2,26 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  console.log('init')
+  console.log("init");
   const [response, setResponse] = useState({});
-  const [loading,setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   async function fetchAdvice() {
-    console.log('fetch')
-    setLoading(true)
+    console.log("fetch");
+    setLoading(true);
     try {
       const responseF = await fetch("https://api.adviceslip.com/advice");
       setResponse(await responseF.json());
-      setLoading(false)
-      console.log(responseF)
+      setLoading(false);
+      console.log(responseF);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
   }
 
-  useEffect(() =>fetchAdvice, []);
+  useEffect(() => {
+    fetchAdvice().catch(console.error)
+  }, []);
 
   return (
     <div className="App">
