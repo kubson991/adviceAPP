@@ -6,7 +6,7 @@ function App() {
   const [loading,setLoading] = useState(true)
   async function fetchAdvice() {
     setLoading(true)
-    const response = await window.fetch("https://api.adviceslip.com/advice");
+    const response = await fetch("https://api.adviceslip.com/advice");
     setResponse(await response.json());
     setLoading(false)
   }
