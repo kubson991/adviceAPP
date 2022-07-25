@@ -7,16 +7,10 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   async function fetchAdvice() {
-    console.log("fetch");
     setLoading(true);
-    try {
       const responseF = await fetch("https://api.adviceslip.com/advice");
       setResponse(await responseF.json());
       setLoading(false);
-      console.log(responseF);
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   useEffect(() => {
