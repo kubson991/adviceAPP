@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [response, setResponse] = useState();
+  console.log('init')
+  const [response, setResponse] = useState({});
   const [loading,setLoading] = useState(true)
 
   async function fetchAdvice() {
