@@ -4,11 +4,18 @@ import "./App.css";
 function App() {
   const [response, setResponse] = useState();
   const [loading,setLoading] = useState(true)
+
   async function fetchAdvice() {
+    console.log('fetch')
     setLoading(true)
-    const response = await fetch("https://api.adviceslip.com/advice");
-    setResponse(await response.json());
-    setLoading(false)
+    try {
+      const Response = await fetch("https://api.adviceslip.com/advice");
+      setResponse(await Response.json());
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+    }
+    console.log(Response)
   }
 
   useEffect(() => fetchAdvice, []);
